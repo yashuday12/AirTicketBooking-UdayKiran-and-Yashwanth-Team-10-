@@ -1,0 +1,16 @@
+<div class="container">
+    
+  
+        <div class="recharge-form class1">
+          <form #formData="ngForm" (ngSubmit)="rechargeWallet(formData)">
+            <div class="wallet-info">
+                <label>The Current Wallet :</label>  {{userDetails.wallet}}<br>
+              </div><br>
+            <div class="form-group label"><label for="wallet">Recharge Wallet : </label>
+            <input type="number" name="wallet" ngModel required></div>
+            <button type="submit">Recharge</button>
+          </form>
+          <div *ngIf="errorOccured=='fail'" style="color:black"> Something went again,try again</div>
+          <div *ngIf="errorOccured=='success'" style="color:black"> Recharged succesfully</div>
+        </div>
+      </div>

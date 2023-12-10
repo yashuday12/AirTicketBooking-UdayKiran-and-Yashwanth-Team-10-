@@ -1,0 +1,54 @@
+
+<div class="container">
+    <form #formData="ngForm" (ngSubmit)="editFlight(formData)"  class="custom-form">
+        <div class="form-group class1">
+            <label for="adminId">flightId</label>
+            <input type="number" name="flightId"   [(ngModel)]="flight.flightId" class="form-control" required>
+        </div>
+
+        <div class="form-group class1">
+            <label for="flightName">flightName</label>
+            <input type="text" name="flightName"  [(ngModel)]="flight.flightName"  class="form-control" required>
+        </div>
+
+        <div class="form-group class1">
+            <label for="typeOfFlight">typeOfFlight</label>
+            <input type="text" name="typeOfFlight"  [(ngModel)]="flight.typeOfFlight" class="form-control">
+        </div>
+
+        <div class="form-group class1">
+            <label for="source">source</label>
+            <input type="text" name="source"  [(ngModel)]="flight.source" class="form-control">
+        </div>
+
+        <div class="form-group class1">
+            <label for="destination">destination</label>
+            <input type="text" name="destination"  [(ngModel)]="flight.destination" class="form-control">
+        </div>
+
+        <div class="form-group class1">
+            <label for="timeOfArrival">timeOfArrival</label>
+            <input type="time" name="timeOfArrival"  [(ngModel)]="flight.timeOfArrival" class="form-control">
+        </div>
+        <div class="form-group class1">
+            <label for="timeOfDeparture">timeOfDeparture</label>
+            <input type="time" name="timeOfDeparture"  [(ngModel)]="flight.timeOfDeparture" class="form-control">
+        </div>
+        <div class="form-group class1">
+            <label for=" duration"> duration</label>
+            <input type="text" name=" duration"  [(ngModel)]="flight.duration" class="form-control">
+        </div>
+        <div class="form-group class1">
+            <label for=" fare"> fare</label>
+            <input type="number" name=" fare"  [(ngModel)]="flight.fare" class="form-control">
+        </div>
+        <div class="form-group class1">
+            <label for=" numberOfSeats"> numberOfSeats</label>
+            <input type="number" name=" numberOfSeats"  [(ngModel)]="flight.numberOfSeats" class="form-control">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Edit Flight</button>
+    </form>
+    <div *ngIf="errorOccured=='fail'" > Something went wrong,try again</div>
+    <div *ngIf="errorOccured=='success'" >Flight details updated successfully </div>
+</div>

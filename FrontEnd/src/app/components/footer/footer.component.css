@@ -1,0 +1,36 @@
+
+.container-fluid {
+    background-color: black; 
+    padding: 20px; 
+    color: #fff; 
+    
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+  }
+  
+  .footer-section {
+    margin-left: 30px; 
+   
+  }
+  
+  h4 {
+    color: #fff; 
+  }
+  
+  p {
+    color: #ccc; 
+  }
+  
+  .social-media-links {
+    margin-top: 10px; 
+  }
+  
+  .social-link {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+  }

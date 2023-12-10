@@ -1,0 +1,24 @@
+
+<table>
+  <tr>
+    <td class="col-3">
+  <div class="side-menu">
+    <div class="brand-name bi bi-airplane">
+      <h2>Welcome User : {{userDto.userName}}</h2>
+    </div>
+    <ul>
+      <li><a routerLink="edituser">Edit Profile</a></li>
+      <li><a routerLink="viewtickets"> View Bookings</a></li>
+      <li><a routerLink="paymenthistory"> Payment History</a></li>
+      <li><a routerLink="changeuserpassword"> change Password</a></li>
+      <li><a routerLink="rechargewallet"> Recharge Wallet</a></li>
+    </ul>
+  </div>
+</td>
+<td class="col-9 bg">
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</td>
+</tr>
+</table>

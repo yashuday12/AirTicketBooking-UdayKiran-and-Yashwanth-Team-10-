@@ -1,0 +1,22 @@
+<div class="table-container mt-5">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover custom-table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Reference Number</th>
+          <th scope="col">Amount Paid</th>
+          <th scope="col">Payment Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paymentHistory of paymentHistory">
+          <td>{{ paymentHistory.referenceNumber  }}</td>
+          <td>{{ paymentHistory.amountPaid }}</td>
+          <td>{{ paymentHistory.paymentDate }}</td>
+          <td>{{ paymentHistory.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="bg-container ">
+	<div class="bgimg ">
+		<div id="booking" class="section">
+			<div class="section-center">
+				<div class="container">
+					<div class="row">
+						<div class="booking-form">
+							<form #formData="ngForm" (ngSubmit)="searchFlight(formData)">
+								<div class="row no-margin">
+									<div class="col-md-3">
+										<div class="form-header">
+											<h2>Book Now</h2>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="row no-margin">
+											<div class="col-md-4">
+												<div class="form-group">
+													<span class="form-label">Source</span>
+													<input class="form-control" type="text"  name="source" ngModel required>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<span class="form-label">Destination</span>
+													<input class="form-control" type="text" name="destination" ngModel required>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<span class="form-label">Travel Date</span>
+													<input class="form-control" type="date" name="travelDate" [min]="date" ngModel required>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-btn">
+											<button type="submit" class="submit-btn">Check availability</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	  
+	  <!-- Flight Details -->
+	  <div class="container mt-5" *ngIf="showTable">
+		<div class="table-responsive">
+		  <table class="table table-bordered table-hover custom-table">
+			<thead class="thead-dark">
+			  <tr>
+				<th scope="col">Flight ID</th>
+				<th scope="col">Flight Name</th>
+				<th scope="col">Type Of Flight</th>
+				<th scope="col">Source</th>
+				<th scope="col">Destination</th>
+				<th scope="col">Time Of Arrival</th>
+				<th scope="col">Time Of Departure</th>
+				<th scope="col">Duration</th>
+				<th scope="col">Fare</th>
+				<th scope="col">Number Of Seats</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr *ngFor="let flight of flights" [ngClass]="{'clickable-row': isClickable}" (click)="isClickable && navigateToFlightDetails(flight.flightId)">
+				<td>{{ flight.flightId }}</td>
+				<td>{{ flight.flightName }}</td>
+				<td>{{ flight.typeOfFlight }}</td>
+				<td>{{ flight.source }}</td>
+				<td>{{ flight.destination }}</td>
+				<td>{{ flight.timeOfArrival }}</td>
+				<td>{{ flight.timeOfDeparture }}</td>
+				<td>{{ flight.duration }}</td>
+				<td>{{ flight.fare }}</td>
+				<td>{{ flight.numberOfSeats }}</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+	  </div>
+	</div>
+	</div>
+	<div>
+	<app-footer></app-footer>
+	</div>

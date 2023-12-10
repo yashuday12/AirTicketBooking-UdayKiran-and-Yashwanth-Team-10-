@@ -1,0 +1,78 @@
+<body>
+
+  <div class="container login-container">
+    <h2>User Registration</h2>
+    <form #formData="ngForm" (ngSubmit)="registration(formData)">
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" name="userName" ngModel class="form-control" required minlength="2" maxlength="50" #name="ngModel" placeholder="">
+        <span style="color:red" *ngIf="name.touched && name.invalid">Name is mandatory</span>
+        <span style="color:red" *ngIf="formData.controls['userName'].errors?.hasOwnProperty('minlength') || formData.controls['userName'].errors?.hasOwnProperty('maxlength')">
+          User Name must be between 2 and 50 characters
+        </span>
+      </div>
+        <div class="form-group">
+          <label>Gender</label><br>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="gender" value="male" ngModel required class="form-check-input">Male
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="gender" value="female" ngModel required class="form-check-input">Female
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="gender" value="other" ngModel required class="form-check-input">Other
+          </div>
+          <span style="color:red" *ngIf="formData.controls['gender'].touched && formData.controls['gender'].invalid">
+            Gender must be 'male' or 'female'
+          </span>
+        </div>
+    
+        <!-- Contact Number -->
+    <div class="form-group">
+      <label for="contactNumber">Contact Number</label>
+      <input type="text" name="contactNumber" ngModel required pattern="^[0-9]{10}" #cno="ngModel" class="form-control" placeholder="">
+      <span style="color:red" *ngIf="cno.touched && cno.invalid">
+        Contact Number is mandatory and must be 10 digits.
+      </span>
+    </div>
+    
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" name="address" ngModel required #address="ngModel" class="form-control" placeholder=""><br>
+          <span style="color:red"   *ngIf="address.touched && address.invalid" >Address is mandartory</span>
+        </div>
+    
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input type="date" name="dateOfBirth" [max]="date" ngModel required #dob="ngModel" class="form-control" placeholder=""><br>
+          <span style="color:red"   *ngIf="dob.touched && dob.invalid" >Date of Birth is mandartory</span>
+        </div>
+    
+
+    <div class="form-group">
+      <label for="userEmail">User Email</label>
+      <input type="email" name="userEmail" ngModel required email #uEmail="ngModel" class="form-control" placeholder="">
+      <span style="color:red" *ngIf="uEmail.touched && uEmail.invalid">
+        User Email is mandatory and must be a valid email address.
+      </span>
+    </div>
+    
+      
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" ngModel required class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" #password="ngModel">
+      <div *ngIf="password.touched && password.invalid">
+        <div *ngIf="password.errors?.hasOwnProperty('required')">Password is mandatory</div>
+        <div *ngIf="password.errors?.hasOwnProperty('pattern')">
+          Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be between 8 and 16 characters.
+        </div>
+      </div>
+      </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" style="margin-left: 100px;" class="btn btn-primary btn-block" routerLink="">Go Back to Home</button>
+      </form>
+      <div *ngIf="errorOccured=='fail'"> Something went again,try again</div>
+      <div *ngIf="errorOccured=='success'"> Registration Successful</div>
+    </div>
+    </body>

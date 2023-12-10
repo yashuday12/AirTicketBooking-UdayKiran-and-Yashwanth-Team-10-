@@ -1,0 +1,37 @@
+<div class="container mt-5">
+ 
+  <div class="table-container">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Flight ID</th>
+          <th scope="col">Flight Name</th>
+          <th scope="col">Type Of Flight</th>
+          <th scope="col">Source</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Time Of Arrival</th>
+          <th scope="col">Time Of Departure</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Fare</th>
+          <th scope="col">Number Of Seats</th>
+          <th scope="col">cancel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights" [ngClass]="{'clickable': isClickable}" (click)="isClickable && navigateToFlightDetails(flight.flightId)">
+          <td>{{ flight.flightId }}</td>
+          <td>{{ flight.flightName }}</td>
+          <td>{{ flight.typeOfFlight }}</td>
+          <td>{{ flight.source }}</td>
+          <td>{{ flight.destination }}</td>
+          <td>{{ flight.timeOfArrival }}</td>
+          <td>{{ flight.timeOfDeparture }}</td>
+          <td>{{ flight.duration }}</td>
+          <td>{{ flight.fare }}</td>
+          <td>{{ flight.numberOfSeats }}</td>
+          <td><button type="button" (click)="deleteFlight(flight.flightId)">DeleteFlight</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

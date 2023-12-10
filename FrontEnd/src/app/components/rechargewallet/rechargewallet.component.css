@@ -1,0 +1,44 @@
+.container {
+    background-color: white;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%; 
+    margin-left: 10px;
+    max-width: 700px;
+}
+
+.form-group label {
+    color: black;
+}
+
+.form-control {
+    color: #333;
+}
+.wallet-info{
+    color: black;
+}
+button {
+    margin-top: 10px;
+
+}
+
+
+.class1 {
+    padding: 20px;
+    border: 2px solid #006400; 
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+.btn-dark-green {
+    background-color: #006400; 
+    color: white; 
+    border: none; 
+}
+
+.btn-dark-green:hover {
+    background-color: #003300; 
+}
+.class1{
+    padding:20px;
+}

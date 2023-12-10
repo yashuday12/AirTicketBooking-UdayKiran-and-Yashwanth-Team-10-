@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div >
+        <form #formData="ngForm" (ngSubmit)="editFlightOwner(formData)">
+            <div class="form-group class1">
+                <label for="flightOwnerId">flightOwnerId</label>
+                <input type="number" name="flightOwnerId"   [(ngModel)]="flightOwner.flightOwnerId" class="form-control" required>
+            </div>
+
+            <div class="form-group class1">
+                <label for="adminName">flightOwnerName</label>
+                <input type="text" name="flightOwnerName"  [(ngModel)]="flightOwner.flightOwnerName"  class="form-control" required>
+            </div>
+    
+            <div class="form-group class1">
+                <label for="flightOwnerContact">flightOwnerContact</label>
+                <input type="text" name="flightOwnerContact"  [(ngModel)]="flightOwner.flightOwnerContact"  class="form-control" required>
+            </div>
+            <div class="form-group class1">
+                <label for=" flightOwnerEmail"> flightOwnerEmail</label>
+                <input type="text" name=" flightOwnerEmail"  [(ngModel)]="flightOwner. flightOwnerEmail"  class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-light-brown">Edit</button>
+        </form>
+        <div *ngIf="errorOccured=='fail'"> Something went wrong, try again</div>
+        <div *ngIf="errorOccured=='success'">Your Profile Updated Successfully </div>
+    </div>
+
+</div>

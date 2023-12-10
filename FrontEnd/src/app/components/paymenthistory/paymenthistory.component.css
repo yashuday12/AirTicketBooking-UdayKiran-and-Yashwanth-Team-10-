@@ -1,0 +1,41 @@
+.table-container {
+    color: #fff; 
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 700px;
+    background-size: cover;
+    border-collapse: collapse;
+    background-position: top;
+    position: relative;
+    margin-left: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #006400; 
+    border-radius: 8px;
+  }
+  
+  .table-container th,
+  .table-container td {
+    border: 1px solid #006400; 
+    padding: 8px;
+    border-radius: 8px;
+    text-align: left;
+    border-collapse: collapse;
+  }
+  
+  .table-container th {
+    background-color: #006400; 
+    color: #fff; 
+    border-collapse: collapse;
+  }
+  
+  .table-container tr:nth-child(even) {
+    background-color: #fff; 
+    border-collapse: collapse;
+  }

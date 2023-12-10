@@ -1,0 +1,25 @@
+<div class="table-container">
+  <h2>User Details</h2>
+  <table class="table">
+ 
+    <thead>
+      <tr>
+        <th scope="col">Flight Owner Id</th>
+        <th scope="col">Flight Owner Name</th>
+        <th scope="col">Flight Owner Contact</th>
+        <th scope="col">Flight Owner Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flightOwner of flightOwner">
+        <td>{{ flightOwner.flightOwnerId }}</td>
+        <td>{{ flightOwner.flightOwnerName }}</td>
+        <td>{{ flightOwner.flightOwnerContact }}</td>
+        <td>{{ flightOwner.flightOwnerEmail }}</td>
+        <td><button type="button" (click)="deleteFlghtOwners(flightOwner.flightOwnerId)"> delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

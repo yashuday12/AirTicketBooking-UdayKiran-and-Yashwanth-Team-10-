@@ -1,0 +1,65 @@
+<div class="container mt-3 class1">
+  <form #formData="ngForm" (ngSubmit)="addFlight(formData)" class="flight-form">
+   
+    <div class="form-group class1">
+      <label for="flightName">Flight Name:</label>
+      <input type="text" class="form-control" id="flightName" name="flightName"#flightName="ngModel" ngModel name="flightName" required>
+      <div *ngIf="flightName.touched && flightName.hasError('required')" class="text-danger">Flight Name is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="typeOfFlight">Type of Flight:</label>
+      <input type="text" class="form-control" id="typeOfFlight"#typeOfFlight="ngModel" name="typeOfFlight" ngModel  required>
+      <div *ngIf="typeOfFlight.touched && typeOfFlight.hasError('required')" class="text-danger">Type of Flight is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="source">Source:</label>
+      <input type="text" class="form-control" id="source"#source="ngModel" name="source" ngModel  required>
+      <div *ngIf="source.touched && source.hasError('required')" class="text-danger">Source is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="destination">Destination:</label>
+      <input type="text" class="form-control" id="destination"#destination="ngModel" name="destination" ngModel  required>
+      <div *ngIf="destination.touched && destination.hasError('required')" class="text-danger">Destination is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="timeOfArrival">Time of Arrival:</label>
+      <input type="text" class="form-control" id="timeOfArrival"#timeOfArrival="ngModel" name="timeOfArrival" ngModel  required>
+      <div *ngIf="timeOfArrival.touched && timeOfArrival.hasError('required')" class="text-danger">Time of Arrival is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="timeOfDeparture">Time of Departure:</label>
+      <input type="text" class="form-control" id="timeOfDeparture"#timeOfDeparture="ngModel" name="timeOfDeparture" ngModel  required>
+      <div *ngIf="timeOfDeparture.touched && timeOfDeparture.hasError('required')" class="text-danger">Time of Departure is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="duration">Duration:</label>
+      <input type="text" class="form-control" id="duration"#duration="ngModel" name="duration" ngModel required>
+      <div *ngIf="duration.touched && duration.hasError('required')" class="text-danger">Duration is required</div>
+    </div>
+    
+    
+    <div class="form-group class1">
+      <label for="fare">Fare:</label>
+      <input type="text" class="form-control" id="fare"#fare="ngModel" name="fare" ngModel  required>
+      <div *ngIf="fare.touched && fare.hasError('required')" class="text-danger">Fare is required</div>
+    </div>
+
+    <div class="form-group class1">
+      <label for="numberOfSeats">Number of Seats:</label>
+      <input type="number" class="form-control" id="numberOfSeats"#numberOfSeats="ngModel" name="numberOfSeats" ngModel  required>
+      <div *ngIf="numberOfSeats.touched && numberOfSeats.hasError('required')" class="text-danger">Number of Seats is required</div>
+  
+    </div>
+
+    <button type="submit" class="btn btn-light-brown">Submit</button>
+    
+  </form>
+  <div *ngIf="errorOccured=='fail'"> something went wrong,try again</div>
+  <div *ngIf="errorOccured=='success'">flight details added succesfully </div>
+</div>

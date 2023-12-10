@@ -1,0 +1,34 @@
+
+<div class="container-fluid bg-dark">
+  <div class="container">
+      <nav class="navbar navbar-dark navbar-expand-lg ">
+          <a href="#" class="navbar-brand">
+              <h1 class="text-primary mb-0 display-5"><i class="fa fa-fw fa-plane"></i>UV<span class="text-white">Trips</span><i class="fa fa-spider text-primary ms-2"></i></h1>
+          </a>
+          <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
+              <div class="navbar-nav ms-auto">
+                  <span *ngIf="isStatus; then block2 else block1"></span>
+                  <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"   class="nav-item nav-link "><i class="fa fa-fw fa-home"></i>Home</a>
+                  <ng-template #block1>
+                  <a routerLink="login"  routerLinkActive="active" class="nav-item nav-link"><i class="fa fa-fw fa-user"></i>Login</a>
+                  <a routerLink="signup"  routerLinkActive="active"class="nav-item nav-link"><i class="fa fa-fw fa-plus"></i>Signup</a>
+                  </ng-template>
+                 <ng-template #block2>
+                  <span *ngIf="role === 'ROLE_ADMIN'; then blockAdmin else  role === 'ROLE_FLIGHTOWNER' ? blockFlightOwner : blockUser" ></span>
+                 <ng-template #blockAdmin>
+                  <a routerLink="admindashboard"  routerLinkActive="active" class="nav-item nav-link"><i class="fa fa-fw fa-bars"></i>Dashboard</a>
+                </ng-template>
+                <ng-template #blockFlightOwner>
+                  <a routerLink="flightownerdashsboard"  routerLinkActive="active" class="nav-item nav-link"><i class="fa fa-fw fa-bars"></i>Dashboard</a>
+                </ng-template>
+                <ng-template #blockUser>
+                  <a routerLink="userdashboard"  routerLinkActive="active" class="nav-item nav-link"><i class="fa fa-fw fa-bars"></i>Dashboard</a>
+                </ng-template>
+                  <a  class="nav-item nav-link" (click)="logout()"><i class="fa fa-fw fa-user"></i>Logout</a>
+                 </ng-template>
+              </div>
+          </div>
+      </nav>
+  </div>
+</div>
+<router-outlet></router-outlet>

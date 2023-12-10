@@ -1,0 +1,41 @@
+.container {
+   
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+  color: black;
+  font-size: 20px;
+}
+
+.form-control {
+  color: #333;
+}
+.btn-light-brown {
+  background-color: #ac5415;
+  color: white;
+  border: none; 
+}
+
+.btn-light-brown:hover {
+  background-color: #ffe4c4; 
+}
+
+button {
+  margin-top: 10px;
+}
+
+.class1 {
+  padding: 20px;
+  border: 2px solid #ac5415; 
+  border-radius: 8px;
+  background-color: rgba(255, 228, 196, 0.5); 
+}

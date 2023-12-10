@@ -1,0 +1,32 @@
+
+<div class="login-container">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <h1 class="text-center mb-4">Login</h1>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" ngModel class="form-control" required
+             minlength="2" maxlength="50" #username="ngModel">
+      <div *ngIf="username.touched && username.invalid">User Name is mandatory  </div>
+        <div *ngIf="username.errors?.hasOwnProperty('minlength') || username.errors?.hasOwnProperty('maxlength')">
+          Username must be between 2 and 50 characters
+        </div>
+    
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" ngModel class="form-control" required
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" #password="ngModel">
+      <div *ngIf="password.touched && password.invalid">
+        <div *ngIf="password.errors?.hasOwnProperty('required')">Password is mandatory</div>
+        <div *ngIf="password.errors?.hasOwnProperty('pattern')">
+         invalid password
+        </div>
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+    <button type="button" style="margin-left: 100px;" class="btn btn-primary btn-block" routerLink="">Go Back to Home</button>
+  </form>
+  <!-- <div *ngIf="errorOccured"> Something went again,try again</div> -->
+  </div>
+  

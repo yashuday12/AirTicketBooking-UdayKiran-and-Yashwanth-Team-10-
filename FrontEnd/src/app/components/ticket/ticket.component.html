@@ -1,0 +1,62 @@
+<body>
+    <div class="ticketContainer" >
+        <h1>Ticket Details</h1>
+
+        
+        <div class="ti" id="ticketPdf">
+        <table class="topBar">
+            <tr>
+                <th>Source :{{flight.source}}</th>
+                <th>Destination:{{flight.destination}}</th>
+                <th>Travel Date : {{ticket.travelDate}}</th>
+                <th>Ticket Id : {{ticket.ticketId}}</th>
+            </tr>
+        </table>
+
+        <div class="passengerDiv">
+            <div class="titlePassenger">
+              <table>
+                <tr>
+                  <th>Passenger Name</th>
+                  <th>Seat Number</th>
+                  <th>Age</th>
+                  <th>Passenger Id</th>
+                </tr>
+              </table>
+            </div>
+          
+            <div class="listPassenger">
+              <table>
+                <tr *ngFor="let p of passengerList">
+                  <td>{{p.passengerName}}</td>
+                  <td>{{p.passengerSeatNumber}}</td>
+                  <td>{{p.passengerAge}}</td>
+                  <td>{{p.passengerId}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        <div class="flightInfoBar">
+            <table>
+                <tr>
+                    <th>Flight Id : {{flight.flightId}}</th>
+                    <th>Flight Type : {{flight.typeOfFlight}}</th>
+                    <th>Flight Name : {{flight.flightName}}</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="jouneyInfoBar">
+            <table>
+                <tr> 
+                    <th>Arrivale Time : {{flight.timeOfArrival}}</th>
+                    <th>Departure Time : {{flight.timeOfDeparture}}</th>
+                    <th>Total Fare : Rs {{ticket.totalAmount}}</th>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button (click)="downloadPdf()">download pdf</button>
+<body>
+

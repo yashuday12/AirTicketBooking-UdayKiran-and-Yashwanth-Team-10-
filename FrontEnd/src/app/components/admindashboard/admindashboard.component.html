@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <td class="col-3">
+  <div class="side-menu">
+    <div class="brand-name bi bi-airplane">
+      <h2>Welcome Admin : {{adminDto.adminName}}</h2>
+    </div>
+    <ul>
+      <li><a routerLink="flight">Add FlightOwner</a></li>
+      <li><a routerLink="user"> View Users</a></li>
+      <li><a routerLink="viewtickets"> View Bookings</a></li>
+      <li><a routerLink="flightowner"> View FlightOwner</a></li>
+      <li><a routerLink="editadmin"> Edit Admin</a></li>
+      <li><a routerLink="changeadminpassword">changepassword</a></li>
+    </ul>
+  </div>
+</td>
+<td class="col-9 bg">
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</td>
+</tr>
+</table>
+  

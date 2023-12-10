@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <div >
+        <form #formData="ngForm" (ngSubmit)="editUser(formData)">
+            <div class="form-group class1">
+                <label for="userId">UserId</label>
+                <input type="number" name="userId"   [(ngModel)]="user.userId" class="form-control" required>
+            </div>
+
+            <div class="form-group class1">
+                <label for="userName">userName</label>
+                <input type="text" name="userName"  [(ngModel)]="user.userName"  class="form-control" required>
+            </div>
+    
+            <div class="form-group class1">
+                <label for="gender"> gender</label>
+                <input type="text" name="gender"  [(ngModel)]="user.gender"  class="form-control" required>
+            </div>
+            <div class="form-group class1">
+                <label for=" contactNumber">contactNumber</label>
+                <input type="text" name=" contactNumber"  [(ngModel)]="user.contactNumber"  class="form-control" required>
+            </div>
+            <div class="form-group class1">
+                <label for="  address"> address</label>
+                <input type="text" name="  address"  [(ngModel)]="user.address"  class="form-control" required>
+            </div>
+            <div class="form-group class1">
+                <label for=" userEmail">dateOfBirth</label>
+                <input type="date" name=" dateOfBirth"  [(ngModel)]="user.dateOfBirth"  class="form-control" required>
+            </div>
+            <div class="form-group class1">
+                <label for=" userEmail">userEmail</label>
+                <input type="email" name=" userEmail"  [(ngModel)]="user.userEmail"  class="form-control" required>
+            </div>
+        
+            <div class="form-group class1">
+                <label for="wallet"> wallet</label>
+                <input type="number" name="wallet"  [(ngModel)]="user.wallet"  class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-dark-green">Edit</button>
+
+        </form>
+        <div *ngIf="errorOccured=='fail'">something went wrong,try again</div>
+        <div *ngIf="errorOccured=='success'">Your profile updated succesfully</div>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <div>
+        <form #formData="ngForm" (ngSubmit)="addFlightOwner(formData)">
+            <div class="form-group class1">
+                <label for="flightOwnerName">Flight Owner Name</label>
+                <input type="text" name="flightOwnerName" #flightOwnerName="ngModel" ngModel class="form-control" required minlength="2" maxlength="50">
+                <div *ngIf="flightOwnerName.touched && flightOwnerName.hasError('required')" class="text-danger">Flight Owner Name is required</div>
+                <div *ngIf="flightOwnerName.touched && flightOwnerName.hasError('minlength')" class="text-danger">Flight Owner Name must be at least 2 characters</div>
+                <div *ngIf="flightOwnerName.touched && flightOwnerName.hasError('maxlength')" class="text-danger">Flight Owner Name cannot exceed 50 characters</div>
+            </div>
+
+            <div class="form-group class1">
+                <label for="flightOwnerPassword">Flight Owner Password</label>
+                <input type="password" name="flightOwnerPassword" #flightOwnerPassword="ngModel" ngModel class="form-control" required  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$">
+                <div *ngIf="flightOwnerPassword.touched && flightOwnerPassword.hasError('required')" class="text-danger">Flight Owner Password is required</div>
+                <div *ngIf="flightOwnerPassword.touched && flightOwnerPassword.hasError('pattern')" class="text-danger">Invalid password format</div>
+            </div>
+
+            <div class="form-group class1">
+                <label for="flightOwnerContact">Flight Owner Contact</label>
+                <input type="tel" name="flightOwnerContact" #flightOwnerContact="ngModel" ngModel class="form-control" pattern="^[0-9]{10}$">
+                <div *ngIf="flightOwnerContact.touched && flightOwnerContact.hasError('pattern')" class="text-danger">Invalid contact number format</div>
+            </div>
+
+            <div class="form-group class1">
+                <label for="flightOwnerEmail">Flight Owner Email</label>
+                <input type="email" name="flightOwnerEmail" #flightOwnerEmail="ngModel" ngModel class="form-control" required email>
+                <div *ngIf="flightOwnerEmail.touched && flightOwnerEmail.hasError('required')" class="text-danger">Flight Owner Email is required</div>
+                 <div *ngIf="flightOwnerEmail.touched && flightOwnerEmail.hasError('email')" class="text-danger">Invalid email format</div>
+           
+            </div>
+            <button type="submit" class="btn btn-light-brown">Submit</button>
+
+        </form>
+        <div *ngIf="errorOccured=='fail'"> Something Went wrong,try again</div>
+        <div *ngIf="errorOccured=='success'">flight owner details added succesfully </div>
+    </div>
+
+</div>
