@@ -5,10 +5,12 @@
     padding: 20px;
     width: 100%;
     max-width: 700px;
+    margin-top: 120px;
     background-size: cover;
     background-position: center center;
     position: relative;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  
 }
 
 .form-group label {

@@ -14,6 +14,7 @@ constructor(private adminService:AdminService){}
   ngOnInit(): void {
     let id=Number(sessionStorage.getItem("id"));
     this.adminService.getAdminDetailsById(id).subscribe((Response)=>{this.adminDto=Response; 
+      
       console.log(this.adminDto.adminName);})
   }
 

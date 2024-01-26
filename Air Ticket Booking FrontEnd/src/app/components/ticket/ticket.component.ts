@@ -40,10 +40,10 @@ export class TicketComponent implements OnInit{
 
   }
   downloadPdf() {
-    const element = document.getElementById('ticketPdf'); // Use type assertion
+    const element = document.getElementById('ticketPdf');
     console.log('Element found:', element);
     if (element) {
-      const pdfWidth = 8.3 * 25.4; // Convert inches to millimeters
+      const pdfWidth = 8.3 * 25.4;
       const pdfHeight = 8.3 * 25.4; 
       html2canvas(element).then((canvas) => {
       let pdf=new jsPDF('p','mm',[pdfWidth, pdfHeight]);
@@ -53,7 +53,7 @@ export class TicketComponent implements OnInit{
         const imgData = canvas.toDataURL('image/png');
        
         var position=0;
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);  // Adjust the width and height as needed
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight); 
         pdf.save('exported-document.pdf');
       });
     } else {

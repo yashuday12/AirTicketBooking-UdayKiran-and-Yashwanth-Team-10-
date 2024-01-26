@@ -1,25 +1,20 @@
-<table>
-  <tr>
-    <td class="col-3">
-  <div class="side-menu">
-    <div class="brand-name bi bi-airplane">
+<div class="dashboard-container">
+  <div class="sidenav">
+    <div style="padding-top: 30px; padding-bottom: 20px;">
       <h2>Welcome FlightOwner : {{flightOwnerDto.flightOwnerName}}</h2>
     </div>
-    <ul>
-      <li><a routerLink="addflight">Add Flight</a></li>
-      
-      <li><a routerLink="viewtickets"> View Tickets</a></li>
-      <li><a routerLink="viewflights"> View Flights</a></li>
-      <li><a routerLink="editflightowner"> Edit Profile</a></li>
-      <li><a routerLink="changeownerpassword"> Change Password</a></li>
-      
-    </ul>
+  
+    <a routerLink="addflight">Add Flight</a>
+    <a routerLink="viewtickets"> View Tickets</a>
+    <a routerLink="viewflights"> View Flights</a>
+    <a routerLink="editflightowner"> Edit Profile</a>
+    <a routerLink="changeownerpassword"> Change Password</a>
+    
+
   </div>
-</td>
-<td class="col-9 bg">
-  <div class="router">
+
+  <!-- Page content -->
+  <div class="main">
     <router-outlet></router-outlet>
   </div>
-</td>
-</tr>
-</table>
+</div>

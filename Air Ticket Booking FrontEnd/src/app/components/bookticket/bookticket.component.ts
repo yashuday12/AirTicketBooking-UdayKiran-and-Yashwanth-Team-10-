@@ -24,7 +24,10 @@ export class BookticketComponent implements OnInit {
      this.noOfSeats=data["selectedSeatCount"];
      this.userService.getFlightbyFlightId(this.flightId).subscribe((response)=>{
       this.flight=response;
-      this.totalAmount=this.noOfSeats*this.flight.fare;
+      this.totalAmountBeforeDiscount=this.noOfSeats*this.flight.fare;
+      this.discountAmount=(this.totalAmountBeforeDiscount)*(this.flight.discount/100)
+      this.totalAmountAfterDiscount=this.totalAmountBeforeDiscount-(this.discountAmount);
+
      this.noOfPassengers=this.noOfSeats;
      });
      
@@ -34,7 +37,9 @@ export class BookticketComponent implements OnInit {
   selectedSeats!:string[];
   noOfSeats!:number;
   flightId!:number;
-  totalAmount!:number;
+  totalAmountBeforeDiscount!:number;
+  totalAmountAfterDiscount!:number;
+  discountAmount!:number;
   flight!: FlightDTO;
   travelDate!:Date;
   ticketsId!:number;
@@ -73,7 +78,7 @@ export class BookticketComponent implements OnInit {
   bookTicket(){
     this.ticket["travelDate"]=this.travelDate;
     this.ticket["email"]=this.email;
-    this.ticket["totalAmount"]=this.totalAmount;
+    this.ticket["totalAmount"]=this.totalAmountAfterDiscount;
     this.ticket["numberOfPassengers"]=this.noOfSeats;
     console.log(this.ticket);
     let ticketPassenger:TicketPassenger={

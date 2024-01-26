@@ -12,5 +12,6 @@ export class FlightDTO{
     duration!:string;
     fare!:number;
     numberOfSeats!:number;
+    discount!:number;
 
 }

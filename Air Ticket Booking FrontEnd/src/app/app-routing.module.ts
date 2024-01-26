@@ -25,19 +25,19 @@ import { EdituserprofileComponent } from './components/edituserprofile/edituserp
 import { ChangeuserpasswordComponent } from './components/changeuserpassword/changeuserpassword.component';
 import { ChangeadminpasswordComponent } from './components/changeadminpassword/changeadminpassword.component';
 import { ChangeflightownerpasswordComponent } from './components/changeflightownerpassword/changeflightownerpassword.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path:'',component:HeaderComponent, children:[
+  
       {path:'', component:HomeComponent},    
       { path: 'admindashboard',component: AdminDashboardComponent,
           children: [
             { path: 'flight', component: AddFlightOwnerComponent },
             { path: 'user', component: ViewuserComponent },
             { path:'flightowner',component:ViewflightownerComponent},
-            { path:'editadmin',component:EditadminprofileComponent},
             {path:"changeadminpassword",component:ChangeadminpasswordComponent},
             {path:'viewtickets',component:ViewTicketsComponent}
-          ]
+          ],canActivate:[authGuard]
      },
       {path: 'flightownerdashsboard',component: FlightownerdashboardComponent,
           children: [
@@ -47,7 +47,7 @@ const routes: Routes = [
             { path:'edit/:flightId',component:EditflightComponent},
             {path:'editflightowner',component:EditflightownerprofileComponent},
             {path:'changeownerpassword',component:ChangeflightownerpasswordComponent}
-          ]
+          ],canActivate:[authGuard]
      },
       {path:'seatbooking/:flightId/:travelDate',component:SeatbookingComponent},
       {path:'bookticket',component:BookticketComponent},
@@ -59,9 +59,9 @@ const routes: Routes = [
             {path:'edituser',component:EdituserprofileComponent},
             {path:'changeuserpassword',component:ChangeuserpasswordComponent},
             { path: 'viewtickets', component:ViewTicketsComponent}
-          ]
+          ],canActivate:[authGuard]
      }
-    ]},
+    ,
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent}
 ];

@@ -43,7 +43,9 @@ getFlightOwner():Observable<FlightOwnerDTO[]>{
 getAdminDetailsById(adminId:number):Observable <AdminDTO>{
  
   let jwtTokenString=this.service.getjwtToken();
-    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);8
+  console.log(jwtTokenString);
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
+    console.log(headers);
   return this.http.get<AdminDTO>(this.ROOT_URL+`/api/v1/admin/getadminbyid/${adminId}`,{headers});
 }
  editAdminProfile(data:AdminDTO,adminId:number):Observable<AdminDTO>{
@@ -64,7 +66,7 @@ changeAdminPassword(password:string,adminId:number){
 }
 getAllTickets():Observable<TicketDTO[]>{
  let jwtTokenString=this.service.getjwtToken();
-    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
+  const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
   console.log(headers);
   return this.http.get<TicketDTO[]>(this.ROOT_URL+`/api/v1/ticket/getallticket`,{headers})
 }

@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -43,9 +43,10 @@ table{
 }
 .side-menu {
   background: #1f2229;
-  width: 500px;
-  height: 120vh;
+  width: 550px;
+  height: 130vh;
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
   z-index: 1000;
 }
@@ -78,6 +79,8 @@ table{
 
   padding: 20px;
   transition: margin-left 0.3s;
+ 
+
 }
 
 .bg {
@@ -87,4 +90,55 @@ table{
   background-size: cover;
   background-position: center;
 
+} */
+/* The sidebar menu */
+.dashboard-container {
+  display: flex;
 }
+
+.sidenav {
+  height: 130vh;
+  width: 500px;
+  background-color: #111;
+  padding-top: 20px;
+  padding-left: 20px; /* Adjust padding for the left side */
+}
+
+.brand-name {
+  display: flex;
+  align-items: center;
+}
+
+.brand-name h2 {
+  color: white;
+  margin-right: 20px; /* Adjust margin for the right side */
+}
+
+.sidenav a {
+  padding: 28px 15px; /* Increase padding for better spacing */
+  text-decoration: none;
+  font-size: 36px;
+  color: #ffe4c4;
+  display: block;
+  margin-bottom: 10px; /* Add margin between links */
+}
+
+.sidenav a:hover {
+  background:  #ffe4c4;
+  color: black;
+}
+h2 {
+  font-size: 35px;
+  color: white;
+
+}
+
+.main {
+  flex: 1;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url('../../../assets/admin.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+

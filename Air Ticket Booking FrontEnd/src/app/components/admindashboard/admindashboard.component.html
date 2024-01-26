@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <tr>
     <td class="col-3">
   <div class="side-menu">
@@ -10,7 +10,6 @@
       <li><a routerLink="user"> View Users</a></li>
       <li><a routerLink="viewtickets"> View Bookings</a></li>
       <li><a routerLink="flightowner"> View FlightOwner</a></li>
-      <li><a routerLink="editadmin"> Edit Admin</a></li>
       <li><a routerLink="changeadminpassword">changepassword</a></li>
     </ul>
   </div>
@@ -21,5 +20,25 @@
   </div>
 </td>
 </tr>
-</table>
+</table> -->
+<div class="dashboard-container">
+  <div class="sidenav">
+    <div style="padding-top: 30px; padding-bottom: 20px;">
+      <h2>Welcome Admin : {{adminDto.adminName}}</h2>
+    </div>
+  
+      <a routerLink="flight">Add FlightOwner</a>
+      <a routerLink="user"> View Users</a>
+      <a routerLink="viewtickets"> View Bookings</a>
+      <a routerLink="flightowner"> View FlightOwner</a>
+      <a routerLink="changeadminpassword">changepassword</a>
+
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
   

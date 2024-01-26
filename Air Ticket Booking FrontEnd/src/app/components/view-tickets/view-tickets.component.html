@@ -8,6 +8,7 @@
           <th scope="col">Email</th>
           <th scope="col">No Of Passengers</th>
           <th scope="col">cancel</th>
+          <th scope="col">Status</th> 
         </tr>
       </thead>
       <tbody>
@@ -16,7 +17,10 @@
           <td>{{ ticket.travelDate }}</td>
           <td>{{ ticket.email }}</td>
           <td>{{ ticket.numberOfPassengers }}</td>
-          <td><button type="button"(click)="deleteTickets(ticket.ticketId)">cancel Ticket</button></td>
+          <td><button type="button" [disabled]="isDateInPast(ticket.travelDate)" (click)="deleteTickets(ticket.ticketId)">cancel Ticket</button></td>
+          <td *ngIf="isDateInPast(ticket.travelDate)"> Already travelled</td>
+          <td *ngIf="!isDateInPast(ticket.travelDate)"> yet to travel</td>
+
 
         </tr>
       </tbody>

@@ -1,0 +1,31 @@
+
+ 
+   body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide overall scrollbar */
+  }
+  
+  .wrapper {
+    height: 100vh; /* Use viewport height for full height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Ensure the header is above other content */
+   
+  }
+  
+  .content {
+    flex: 1;
+    overflow: auto; /* Enable scrolling within the content area */
+    padding-top: 83px;
+  }
+  
+  

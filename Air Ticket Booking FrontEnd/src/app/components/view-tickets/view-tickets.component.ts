@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TicketDTO } from 'src/app/model/TicketDTO';
 import { AdminService } from 'src/app/services/admin.service';
 import { FlightownerService } from 'src/app/services/flightowner.service';
+import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,27 +14,38 @@ import { UserService } from 'src/app/services/user.service';
 export class ViewTicketsComponent implements OnInit {
   isClickable:boolean=false;
   flightId!:number;
-  constructor(private flightOwnerService:FlightownerService,private userService:UserService,private route:ActivatedRoute,private router: Router,private adminservice:AdminService){}
+new: any;
+role!:string;
+  constructor(private flightOwnerService:FlightownerService,private userService:UserService,private service:LoginService ,private route:ActivatedRoute,private router: Router,private adminservice:AdminService){}
    ngOnInit(): void {
-     let id=Number(sessionStorage.getItem("id"));
-     let role=sessionStorage.getItem("role");
-     if(role=="ROLE_FLIGHTOWNER"){
+    let id=Number(sessionStorage.getItem("id"));
+    //  let role=sessionStorage.getItem("role");
+    this.service.role$.subscribe((role)=>{
+      this.role=role;
+    })
+     if(this.role=="ROLE_FLIGHTOWNER"){
      this.flightOwnerService.getTicketsOfFightOwner(id).subscribe((response)=>{
        this.ticketList=response;
+       console.log(this.ticketList);
       
      });}
-     if(role=="ROLE_USER"){
+     if(this.role=="ROLE_USER"){
        this.userService.getTicketsOfUser(id).subscribe((response)=>{
          this.ticketList=response;
          this.isClickable=true;
+         console.log(this.ticketList);
        });
-     }if(role=="ROLE_ADMIN"){
+     }if(this.role=="ROLE_ADMIN"){
        this.adminservice.getAllTickets().subscribe((response)=>{
         this.ticketList=response;
+        console.log(this.ticketList);
        })
      }
+     this.date = new Date().toISOString().split('T')[0];
+  
    }
   ticketList!:TicketDTO[];
+  date!:string;
  
   getTicketsOfFlightOwner(){
   }
@@ -57,6 +69,12 @@ export class ViewTicketsComponent implements OnInit {
         this.flightId=response;
         this.router.navigate(["../../ticket",ticketId,this.flightId],{relativeTo:this.route});
       })
+ }
+ isDateInPast(traveldate:any){
+  
+  return traveldate < this.date;
+
+
  }
 
 }

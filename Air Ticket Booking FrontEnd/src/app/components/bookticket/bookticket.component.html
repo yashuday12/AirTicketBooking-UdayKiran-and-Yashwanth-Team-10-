@@ -1,6 +1,7 @@
 <body>
+
   <div class="bookingticket">
- <div class="container">
+  <div class="container">
      <h2>Passengers Information</h2>
      <div id="msgpassenger" style="color: darkred; font-weight: bold;"></div>
      <form class="mb-4">
@@ -14,38 +15,38 @@
          <input type="number" class="form-control" id="passengerAge" name="passengerAge" placeholder="Age" #age="ngModel" required [(ngModel)]="passenger.passengerAge" pattern="[0-9]*" maxlength="2">
          <span *ngIf="age.invalid && (age.touched || age.dirty)" style="color: darkred; font-weight: bold;">Invalid age</span>
        </div>
+
+       <div class="form-group">
+        <label for="noOfSeats">Number of Passengers</label>
+        <input type="number" class="form-control" id="noOfSeats" name="noOfSeats" [(ngModel)]="noOfSeats">
+      </div>
    
        <button type="reset" class="btn btn-dark" (click)="addPassenger()" [disabled]="noOfPassengers == 0">Add Passenger</button>
      </form>
-   
-     <h2>Booking Information</h2>
-    
-       <form class="mb-4">
-         <div class="form-group">
-           <label for="travelDate">Travel Date</label>
-           <input type="text" class="form-control" id="travelDate" name="travelDate" [(ngModel)]="travelDate">
-         </div>
-   
-         <div class="form-group">
-           <label for="email">Email</label>
-           <input type="email" class="form-control" id="email" name="email" #name="ngModel" required [(ngModel)]="email">
-         </div>
-   
-         <div class="form-group">
-           <label for="totalAmount">Total Amount</label>
-           <input type="number" class="form-control" id="totalAmount" name="totalAmount" [(ngModel)]="totalAmount">
-         </div>
-   
-         <div class="form-group">
-           <label for="noOfSeats">Number of Passengers</label>
-           <input type="number" class="form-control" id="noOfSeats" name="noOfSeats" [(ngModel)]="noOfSeats">
-         </div>
-         <button type="submit" class="btn btn-dark" (click)="bookTicket()">Book a Ticket</button>
-         <button type="submit"style="margin-left: 300px;" class="btn btn-dark" (click)="back()">Back</button>
-       </form>
+     <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" #name="ngModel" required [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+      <label for="travelDate">Travel Date</label>
+      <input type="text" class="form-control" id="travelDate" name="travelDate" [(ngModel)]="travelDate">
+    </div>
+    <div class="card">
+      
+      <div *ngIf="flight.discount>0" class="card-body">
+        <div style="color:black; font-size: 30px;" ><b>Original fare:<span style="text-decoration: line-through;">{{totalAmountBeforeDiscount}}</span></b></div>
+        <div style="color:red; font-size: 30px;"><b>Discount : -{{flight.discount}} %<img style="width: 50p; height: 50px;" src="../../../assets/red-sales-or-discount-price-tag-18972.png"></b></div>
+        <div style="color:black; font-size: 30px;"><b>Total Amount  :{{totalAmountAfterDiscount}}</b></div>
+      </div>
+          <div *ngIf="flight.discount==0" class="card-body1">
+               <h3><b>Opps ! <img src="../../../assets/sad-face-2692.png">..  No Discount Avialable</b></h3>
+                <div style="color:black; font-size: 30px;">&nbsp;&nbsp;<b>Total Amount  :{{totalAmountBeforeDiscount}}</b></div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark" (click)="back()">Back</button>
+    <button type="submit"style="margin-left: 400px;" class="btn btn-dark" (click)="bookTicket()">Book a Ticket</button>
        <div *ngIf="errorOccured=='fail'">Insufficient balance in your wallet,kindly recharge and try aagain</div>
      </div>
    </div>
- 
  </body>
   

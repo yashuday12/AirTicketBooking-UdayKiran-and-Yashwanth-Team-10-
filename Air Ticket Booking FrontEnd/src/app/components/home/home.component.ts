@@ -15,13 +15,16 @@ export class HomeComponent implements OnInit {
    flights!:FlightDTO[];
    isClickable:boolean=false;
    travelDate!:Date;
+   role!:string;
    constructor(private service:LoginService,private router:Router) {
- 
+  
    }
   ngOnInit(): void {
+    this.service.role$.subscribe((role)=>{
+      this.role=role;
+    })
     
-    let role=sessionStorage.getItem("role");
-    if(role=="ROLE_USER"){
+    if(this.role=="ROLE_USER"){
        this.isClickable=true;
     }
     this.date = new Date().toISOString().split('T')[0];
